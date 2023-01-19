@@ -1,3 +1,6 @@
+# Caesar cipher using python pract-1 19/1/23
+
+# For ecrypting the text
 def encrypt(text,s):
     result = ""
    # transverse the plain text
@@ -11,9 +14,15 @@ def encrypt(text,s):
             result += chr((ord(char) + s - 97) % 26 + 97)
     return result
 
-text = input("Enter the text: ")
-s = 4
+# # For decrypting the text
+def decrypt(cipher, s):
+    result = encrypt(cipher, 26-s)
+    return result
 
-print("Plain Text : " + text)
-print("Shift pattern : " + str(s))
-print("Cipher: " + encrypt(text,s))
+text = input("Enter the text: ")
+shift = int(input("Enter the shift pattern: "))
+ciphered = encrypt(text, shift)
+deciphered = decrypt(ciphered, shift)
+
+print("Cipher text: " + ciphered)
+print("Decipher text: " + deciphered)
