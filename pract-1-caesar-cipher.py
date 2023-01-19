@@ -7,17 +7,12 @@ def encrypt(text,s):
     for i in range(len(text)):
         char = text[i]
 
-        # Encrypt space as space
-        if (char == " "):
-            ciphered_text += " "
         # Encrypt uppercase characters in plain text
-        elif (char.isupper()):
+        if (char.isupper()):
             ciphered_text += chr((ord(char) + s-65) % 26 + 65)
         # Encrypt lowercase characters in plain text
-        elif (char.isalpha()):
-            ciphered_text += chr((ord(char) + s - 97) % 26 + 97)
         else:
-            ciphered_text += char
+            ciphered_text += chr((ord(char) + s - 97) % 26 + 97)
 
     return ciphered_text
 
